@@ -16,7 +16,7 @@ function secondsToMinutesSeconds(seconds) {
 let currentsong =new Audio();
 async function getSong(folder){
     currentfolder=folder
-    let a=await fetch(`http://127.0.0.1:3000/spotify/${folder}/`)
+    let a=await fetch(`/${folder}/`)
     let response=await a.text()
     // console.log(response)
      song=[];
@@ -65,7 +65,7 @@ const playmusic=(track,pause=false)=>{
     
 }
 async function displayAlbum(){
-    let a=await fetch(`http://127.0.0.1:3000/spotify/song/`)
+    let a=await fetch(`/song/`)
     let response=await a.text();
     let div=document.createElement("div")
     div.innerHTML=response;
@@ -83,7 +83,7 @@ async function displayAlbum(){
         <div class="play">
             <img src="img/play.svg" alt="">
         </div>
-            <img src="/spotify/song/${folder}/cover.jpeg" alt="">
+            <img src="/song/${folder}/cover.jpeg" alt="">
             <h2>${response.title}</h2>
             <p>${response.description}</p>
     </div>`
